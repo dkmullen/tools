@@ -1,0 +1,49 @@
+<div>Your Bmi: {{ bmi }}</div>
+<div *ngIf="heightAndWeight"> {{ heightAndWeight }}</div>
+
+<form [formGroup]="bmiMetricForm" (ngSubmit)="onSubmitMetric(bmiMetricForm.value)" *ngIf="units === 'metric'">
+
+  <div>
+    <label for="weight">
+      Weight in kilograms
+    </label>
+    <input id="weight" type="number" formControlName="weight">
+  </div>
+
+  <div>
+    <label for="height">
+      Height in centimeters
+    </label>
+    <input id="height" type="number" formControlName="height">
+  </div>
+
+  <button class="button" type="submit">Calculate</button>
+
+</form>
+
+<form [formGroup]="bmiImperialForm" (ngSubmit)="onSubmitImperial(bmiImperialForm.value)" *ngIf="units === 'imperial'">
+
+  <div>
+    <label for="weight">
+      Weight in pounds
+    </label>
+    <input id="weight" type="number" formControlName="weight">
+  </div>
+
+  <div>
+    <label for="feet">
+      Feet
+    </label>
+    <input id="feet" type="number" formControlName="feet">
+  </div>
+
+  <div>
+    <label for="inches">
+      Inches`
+    </label>
+    <input id="inches" type="number" formControlName="inches">
+  </div>
+  <button class="button" type="submit">Calculate</button>
+
+</form>
+<button class="button" type="button" (click)="toggleUnits()">Switch to {{unitsLabel}}</button>

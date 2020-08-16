@@ -1,0 +1,23 @@
+<div *ngIf="todo">
+    <div *ngFor="let item of todo; index as i">
+        <input type="checkbox" name={{i}} (change)="markDone($event)">
+        <label for={{i}}>{{item}}</label>
+    </div> 
+</div>
+
+<form [formGroup]="todoForm" (ngSubmit)="add(todoForm.value)">
+    <div>
+      <label for="new-item">
+        New Item
+      </label>
+      <input id="newItem" type="text" formControlName="newItem">
+    </div>
+    <button class="button" type="submit">Add</button>
+</form>
+
+<div *ngIf="done">
+    <div *ngFor="let item of done; index as i">
+        <input type="checkbox" name={{i}} (change)="markNotDone($event)" checked>
+        <label for={{i}}>{{item}}</label>
+    </div> 
+</div>
