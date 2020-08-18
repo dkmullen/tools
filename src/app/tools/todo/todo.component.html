@@ -1,7 +1,8 @@
 <div *ngIf="todo">
     <div *ngFor="let item of todo; index as i">
-        <input type="checkbox" name={{i}} (change)="markDone($event)">
+        <input type="checkbox" name={{i}} (change)="markDone(i)">
         <label for={{i}}>{{item}}</label>
+        <span (click)="delete(i, 'todo')">x</span>
     </div> 
 </div>
 
@@ -17,7 +18,8 @@
 
 <div *ngIf="done">
     <div *ngFor="let item of done; index as i">
-        <input type="checkbox" name={{i}} (change)="markNotDone($event)" checked>
+        <input type="checkbox" name={{i}} (change)="markNotDone(i)" checked>
         <label for={{i}}>{{item}}</label>
+        <span (click)="delete(i, 'done')">x</span>
     </div> 
 </div>

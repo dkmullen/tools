@@ -24,16 +24,22 @@ export class TodoComponent {
     }
   }
 
-  markDone({ target }) {
-    const index = parseInt(target.name);
+  markDone(index: number) {
     this.done.unshift(this.todo[index]);
     this.todo.splice(index, 1);
   }
 
-  markNotDone({ target }) {
-    const index = parseInt(target.name);
+  markNotDone(index: number) {
     this.todo.unshift(this.done[index]);
     this.done.splice(index, 1);
+  }
+
+  delete(index: number, list: string) {
+    if (list === 'todo') {
+      this.todo.splice(index, 1);
+    } else {
+      this.done.splice(index, 1);
+    }
   }
 
 }

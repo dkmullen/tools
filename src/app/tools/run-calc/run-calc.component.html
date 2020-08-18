@@ -1,0 +1,44 @@
+<form [formGroup]="runCalcForm" (ngSubmit)="onSubmit(runCalcForm.value)">
+
+    <div>
+      <label for="distance">
+        Distance
+      </label>
+      <input id="distance" type="number" formControlName="distance">
+    </div>
+  
+    <div>Pace</div>
+    <div>
+      <label for="pminutes">
+        Minutes
+      </label>
+      <input id="pminutes" type="number" formControlName="pminutes">
+    </div>
+    <div>
+        <label for="pseconds">
+          Seconds
+        </label>
+        <input id="pseconds" type="number" formControlName="pseconds">
+    </div>
+
+    <div>Elapsed Time</div>
+    <div>
+      <label for="ehours">
+        Hours
+      </label>
+      <input id="ehours" type="number" formControlName="ehours">
+    </div>
+    <div>
+        <label for="eminutes">
+          Minutes
+        </label>
+        <input id="eminutes" type="number" formControlName="eminutes">
+      </div>
+    <div>
+        <label for="eseconds">
+          Seconds
+        </label>
+        <input id="eseconds" type="number" formControlName="eseconds">
+    </div>
+    <button class="button" type="submit">Calculate</button>
+</form>  
